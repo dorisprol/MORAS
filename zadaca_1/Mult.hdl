@@ -1,0 +1,55 @@
+CHIP Mult
+{
+	IN a[16], b[16];
+	OUT out[16];
+	
+	PARTS:
+	Mux16(a = false, b = a, sel = b[0], out = out0);
+	BitShiftL(in = a, out = s1);	
+	Mux16(a = false, b = s1, sel = b[1], out = out1);
+	BitShiftL(in = s1, out = s2);
+	Mux16(a = false, b = s2, sel = b[2], out = out2);
+	BitShiftL(in = s2, out = s3);
+	Mux16(a = false, b = s3, sel = b[3], out = out3);
+	BitShiftL(in = s3, out = s4);
+	Mux16(a = false, b = s4, sel = b[4], out = out4);
+	BitShiftL(in = s4, out = s5);
+	Mux16(a = false, b = s5, sel = b[5], out = out5);
+	BitShiftL(in = s5, out = s6);
+	Mux16(a = false, b = s6, sel = b[6], out = out6);
+	BitShiftL(in = s6, out = s7);
+	Mux16(a = false, b = s7, sel = b[7], out = out7);
+	BitShiftL(in = s7, out = s8);
+	Mux16(a = false, b = s8, sel = b[8], out = out8);
+	BitShiftL(in = s8, out = s9);
+	Mux16(a = false, b = s9, sel = b[9], out = out9);
+	BitShiftL(in = s9, out = s10);
+	Mux16(a = false, b = s10, sel = b[10], out = out10);
+	BitShiftL(in = s10, out = s11);
+	Mux16(a = false, b = s11, sel = b[11], out = out11);
+	BitShiftL(in = s11, out = s12);
+	Mux16(a = false, b = s12, sel = b[12], out = out12);
+	BitShiftL(in = s12, out = s13);
+	Mux16(a = false, b = s13, sel = b[13], out = out13);
+	BitShiftL(in = s13, out = s14);
+	Mux16(a = false, b = s14, sel = b[14], out = out14);
+	BitShiftL(in = s14, out = s15);
+	Mux16(a = false, b = s15, sel = b[15], out = out15);
+	
+	Add16(a = out0, b = out1, out = sum1);
+	Add16(a = out2, b = sum1, out = sum2);
+	Add16(a = out3, b = sum2, out = sum3);
+	Add16(a = out4, b = sum3, out = sum4);
+	Add16(a = out5, b = sum4, out = sum5);
+	Add16(a = out6, b = sum5, out = sum6);
+	Add16(a = out7, b = sum6, out = sum7);
+	Add16(a = out8, b = sum7, out = sum8);
+	Add16(a = out9, b = sum8, out = sum9);
+	Add16(a = out10, b = sum9, out = sum10);
+	Add16(a = out11, b = sum10, out = sum11);
+	Add16(a = out12, b = sum11, out = sum12);
+	Add16(a = out13, b = sum12, out = sum13);
+	Add16(a = out14, b = sum13, out = sum14);
+	Add16(a = out15, b = sum14, out = out);
+	
+}
