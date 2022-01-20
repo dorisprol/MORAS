@@ -1,0 +1,102 @@
+function Mid 2
+
+// local_0 = max = 0
+	push constant 0
+	pop local 0
+// local_1 = mid = 0
+	push constant 0
+	pop local 1
+
+//a>b?
+	push argument 0
+	push argument 1
+	gt
+	if-goto comp1
+//slucaj a<b
+//max=b
+	push local 0
+	push argument 1
+	add
+	pop local 0
+//mid=a
+	push local 1
+	push argument 0
+	add
+	pop local 1
+
+//c<mid?
+	push argument 2
+	push local 1
+	lt
+	if-goto comp2	
+//slucaj c>mid
+//mid = 0
+	push local 1
+	push local 1
+	sub
+	pop local 1
+//mid = c
+	push local 1
+	push argument 2
+	add
+	pop local 1
+
+//c>max?
+	push argument 2
+	push local 0
+	gt
+	if-goto comp3
+//else return mid i slucaj c<mid<max	
+label comp2
+	push local 1
+	return
+
+//u slucaju c>max>mid return max, tj. srednji
+label comp3
+	push local 0
+	return
+	
+//slucaj a>b
+label comp1
+//max=a
+	push local 0
+	push argument 0
+	add
+	pop local 0
+//mid=b
+	push local 1
+	push argument 1
+	add
+	pop local 1
+
+//c<mid?
+	push argument 2
+	push local 1
+	lt
+	if-goto comp2	
+//slucaj c>mid
+//mid = 0
+	push local 1
+	push local 1
+	sub
+	pop local 1
+//mid = c
+	push local 1
+	push argument 2
+	add
+	pop local 1
+
+//c>max?
+	push argument 2
+	push local 0
+	gt
+	if-goto comp3
+//else return mid i slucaj c<mid<max	
+label comp2
+	push local 1
+	return
+
+//u slucaju c>max>mid return max, tj. srednji
+label comp3
+	push local 0
+	return
