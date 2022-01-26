@@ -1,0 +1,33 @@
+class Qsort{
+
+	function int partition(Array A, int low, int high){
+        var int pivot, i, j, temp;
+        let pivot = A[high];
+        let i = low - 1;
+        let j = low;
+        while(j < high){
+            if( ~(A[j] > pivot)){
+				let i = i + 1;
+				let temp = A[j];
+				let A[j] = A[i];
+				let A[i] = temp;
+            }
+            let j = j+1;
+        }
+        let temp = A[i+1];
+        let A[i+1] = A[high];
+        let A[high] = temp;
+        return i+1;
+    }
+
+	function void quicksort(Array A, int low, int high){
+		var int p;
+		if(low < high){
+			let p = Qsort.partition(A, low, high);
+			do Qsort.quicksort(A, low, p-1);
+			do Qsort.quicksort(A, p, high);
+
+		}
+		return;
+	}
+}
